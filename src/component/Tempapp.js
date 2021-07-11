@@ -13,6 +13,8 @@ const Tempapp=()=>{
    const [set,set1]=useState("false");
     const [search,setSearch]=useState("Kota");
 
+    const api=process.env.API
+   
 
  
 
@@ -24,9 +26,9 @@ const Tempapp=()=>{
     useEffect(()=>{
         async function getData(){
            
-            console.log(unit);
-                const res=await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=cb96fe2a2e57a80e13066c0ad73b8769`)
-                console.log(res);
+        
+                const res=await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${api}`)
+               
                 setFull(res);
                 setCity(res.data.main);
                 setWeather(res.data.weather[0]);
